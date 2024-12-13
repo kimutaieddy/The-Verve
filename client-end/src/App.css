@@ -1,0 +1,24 @@
+/* App.css */
+header nav {
+  background-color: #0066cc;
+  padding: 1rem;
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+header li a {
+  color: white;
+  text-decoration: none; /* Remove underline */
+  padding: 0.5rem;
+}
+
+header li a.home-link {
+  padding: 1.5rem;
+}
