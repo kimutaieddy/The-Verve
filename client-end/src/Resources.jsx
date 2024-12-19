@@ -47,7 +47,20 @@ function Resources() {
             console.error('Error uploading files:',error);
             
         }
-        }:
+        };
+
+        return (
+            <section className="section">
+                <div className="container">
+                    <div className="Card">
+                        <h3>Upload pdfs</h3>
+                        <input type="file" onChange={handleFileChange} />
+
+                    </div>
+
+                </div>
+            </section>
+        )
 
         
     }
