@@ -21,6 +21,21 @@ function Resources() {
             console.log('Error fetching PDFs:',error)
         }
     } ;
-    
+    const handleFileChange =(event)  => {
+        setSelectedFile(event.target.files[0]) ;
+
+    };
+    const handleFileUpload =async () => {
+        const formData =new FormData();
+        formData.append('file',selectedFile);
+
+        try {
+            const response =aws
+        } catch (error) {
+            
+        }
+        
+    }
+
     
 }
