@@ -14,7 +14,7 @@ function Resources() {
     const fetchPdfs =async () => {
         try {
             const response =await fetch ('http://your-drf-api-endpoint/pdfs/');
-            const data =awit response.json();
+            const data =await response.json();
             setPdfs(data);
         }
         catch (error) {
