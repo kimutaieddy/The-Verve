@@ -40,17 +40,16 @@ function Resources() {
                 fetchPdfs();
             }
             else {
-                console.error('Error uploading files:',response.statusText);
-                
+                console.error('Error uploading files:',response.statusText);    
             }
-                
-            }
-
-        } catch (error) {
+        }
+        catch(error) {
+            console.error('Error uploading files:',error);
             
         }
+        }:
+
         
     }
 
     
-}
