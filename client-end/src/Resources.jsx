@@ -55,7 +55,20 @@ function Resources() {
                     <div className="Card">
                         <h3>Upload pdfs</h3>
                         <input type="file" onChange={handleFileChange} />
+                        <button omclick={handleFileUpload}>upload</button>
 
+                    </div>
+                    <div className='card'>
+                    <h3>Available pdfs</h3>
+                    <ul>
+                        {pdf.map((pdf)
+                        <li key={pdf.id}>
+                            <a href={pdf.url} target ="_blank" rel="nonoperner npreferrer">{pdf.name</a>
+
+                        </li>)
+                        
+                        }
+                    </ul>
                     </div>
 
                 </div>
@@ -64,5 +77,7 @@ function Resources() {
 
         
     }
+
+    export default Resources ;
 
     
