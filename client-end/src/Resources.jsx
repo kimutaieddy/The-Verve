@@ -61,13 +61,11 @@ function Resources() {
                     <div className='card'>
                     <h3>Available pdfs</h3>
                     <ul>
-                        {pdf.map((pdf)
+                        {pdf.map((pdf) => (
                         <li key={pdf.id}>
-                            <a href={pdf.url} target ="_blank" rel="nonoperner npreferrer">{pdf.name</a>
-
-                        </li>)
-                        
-                        }
+                            <a href={pdf.url} target ="_blank" rel="noopener noreferrer">{pdf.name}</a>
+                        </li>
+                        ))}
                     </ul>
                     </div>
 
