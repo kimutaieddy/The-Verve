@@ -23,7 +23,7 @@ function Resources() {
     } ;
 
     const handleFileChange =(event)  => {
-        setSelectedFile(event.target.files[0]) ;
+        setSelectedFile(event.target.files[0]);
 
     };
 
