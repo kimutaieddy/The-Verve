@@ -3,7 +3,7 @@ import  './Resources.css';
 
 function Resources() {
     const [pdf,setPdfs] =useState ([]);
-    const [selectedpdf,setSelectedFile] =useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
 
     useEffect ( () => {
         fetchPdfs();
