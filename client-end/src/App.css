@@ -1,7 +1,13 @@
 /* App.css */
+header {
+  display: flex;
+  justify-content: center; /* Center the nav bar horizontally */
+}
+
 header nav {
   background-color: #0066cc;
   padding: 1rem;
+  display: inline-block; /* Ensure nav only takes up necessary space */
 }
 
 header ul {
@@ -9,7 +15,6 @@ header ul {
   padding: 0;
   margin: 0;
   display: flex;
-  justify-content: center;
   gap: 1rem;
 }
 
