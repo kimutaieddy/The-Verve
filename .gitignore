@@ -1,6 +1,8 @@
 # backend
 /backend/__pycache__/
 /backend/*.pyc
+/backend/db.sqlite3
+/backend/api/migrations/
 
 # client-end
 /client-end/node_modules
