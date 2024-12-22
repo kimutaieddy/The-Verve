@@ -1,7 +1,8 @@
 from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from .model import PDF
 
-class PDFserializers(serializers,modelSerializers):
-    class meta:
-        model =PDF
-        fields =('id','name','file','url')
+class PDFSerializer(ModelSerializer):
+    class Meta:
+        model = PDF
+        fields = ('id', 'name', 'file', 'url')
