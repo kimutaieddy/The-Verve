@@ -1,3 +1,13 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
+from .models import PDF
+from .serializers import PDFSerializer
 
-# Create your views here.
+class PDFViewSet(viewsets.ModelViewSet):
+    queryset = PDF.objects.all()
+    serializer_class = PDFSerializer
+    parser_classes = (MultiPartParser, FormParser)
+
+    def perform_create(self, serializer):
+        serializer.save(file=self.request.data.get('file'))
