@@ -6,4 +6,4 @@ from .serializers import PdfSerializer
 class PdfViewSet(viewsets.ModelViewSet):
     queryset = pdfs.objects.all()
     serializer_class = PdfSerializer
-    parser_classes = (MultiPartParser,formprarsers)
+    parser_classes = (MultiPartParser,FormParser)
