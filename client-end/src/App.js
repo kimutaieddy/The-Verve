@@ -2,11 +2,12 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import './App.css';
 import Home from './Home';
 import Resources from './Resources';
+// import Contact from './Contact';
 
 function App() {
    return (
     <Router>
-      <header>
+      <header>w
         <nav>
           <ul>
             <li><Link className="home-link" to="/">Home</Link></li>
