@@ -11,5 +11,6 @@ class PDFViewSet(viewsets.ModelViewSet):
 def perform_create(self, serializer):
     if serializer.is_valid():
         serializer.save(file=self.request.data.get('file'))
+
     else:
         print(serializer.errors)
