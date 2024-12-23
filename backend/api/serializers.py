@@ -4,4 +4,4 @@ from .models import PDF
 class PDFSerializer(serializers.ModelSerializer):
     class Meta:
         model = PDF
-        fields = ('id', 'name', 'file', 'url')
+    fields = ('id', 'name', 'file', 'url')
