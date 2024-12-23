@@ -4,6 +4,7 @@ import './Resources.css';
 function Resources() {
     const [pdfs, setPdfs] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
+    const [pdfName, setPdfName] = useState("");
 
     useEffect(() => {
         fetchPdfs();
@@ -23,9 +24,14 @@ function Resources() {
         setSelectedFile(event.target.files[0]);
     };
 
+    const handleNameChange = (event) => {
+        setPdfName(event.target.value);
+    };
+
     const handleFileUpload = async () => {
         const formData = new FormData();
         formData.append('file', selectedFile);
+        formData.append('name', pdfName); // Add the name to the form data
 
         try {
             const response = await fetch('http://localhost:8000/api/pdfs/', {
@@ -51,6 +57,7 @@ function Resources() {
                 </div>
                 <div className="card">
                     <h3>Upload PDF</h3>
+                    <input type="text" placeholder="Enter PDF name" onChange={handleNameChange} />
                     <input type="file" onChange={handleFileChange} />
                     <button onClick={handleFileUpload}>Upload</button>
                 </div>
