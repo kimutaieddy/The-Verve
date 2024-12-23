@@ -9,8 +9,4 @@ class PDFViewSet(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, FormParser)
 
 def perform_create(self, serializer):
-    if serializer.is_valid():
-        serializer.save(file=self.request.data.get('file'))
-#dont  incluwde this line in your code in production 
-    else:
-        print(serializer.errors)
+    serializer.save(file=self.request.data.get('file'))
