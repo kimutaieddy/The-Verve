@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css';
+//wimport './Contact.css';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -45,6 +45,15 @@ function Contact() {
                                     type="email"
                                     name="email"
                                     value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label>subject</label>
+                                <input
+                                    name="Subject"
+                                    value={formData.Subject}
                                     onChange={handleChange}
                                     required
                                 />

@@ -2,12 +2,12 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import './App.css';
 import Home from './Home';
 import Resources from './Resources';
-import Contact from './Contact';
+import Contact from './Contact'; 
 
 function App() {
    return (
     <Router>
-      <header>w
+      <header>
         <nav>
           <ul>
             <li><Link className="home-link" to="/">Home</Link></li>
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/contact" element={<Contact/>} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
