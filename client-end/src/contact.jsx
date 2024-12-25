@@ -5,6 +5,7 @@ function Contact() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        Subject: '',
         message: ''
     });
 
