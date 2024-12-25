@@ -21,6 +21,17 @@ function Contact() {
 
     const handleSubmit = assync (e) => {
         e.preventDefault();
+        try {
+            const response =async fetch(''), {
+                method : 'POST',
+                headers : {
+                    'Content'
+                }
+                
+            }
+        } catch (error) {
+            
+        }
         console.log('Form submitted:', formData);
     };
 
