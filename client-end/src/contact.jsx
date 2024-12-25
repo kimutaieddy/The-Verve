@@ -9,6 +9,8 @@ function Contact() {
         message: ''
     });
 
+    const [status,setStatus] =useState('');
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -17,9 +19,8 @@ function Contact() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = assync (e) => {
         e.preventDefault();
-        // Handle form submission logic here
         console.log('Form submitted:', formData);
     };
 
