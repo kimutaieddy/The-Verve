@@ -1,41 +1,39 @@
 /* ContactUs.css */
-
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
   }
   
-  .contact-us {
+  .contact-us-page {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #ffffff;
+    background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .info-section {
-    margin-bottom: 20px;
+  .contact-info {
+    margin-bottom: 30px;
   }
   
-  .info-section h3 {
+  .contact-info h2 {
     font-size: 24px;
     color: #0054a6;
-    margin-bottom: 10px;
   }
   
-  .info-section p {
-    margin: 5px 0;
+  .contact-info p {
     font-size: 16px;
+    margin: 5px 0;
     color: #333;
   }
   
-  .contact-form {
-    display: flex;
-    flex-direction: column;
+  .contact-form h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #0054a6;
   }
   
   .form-group {
@@ -43,54 +41,45 @@ body {
   }
   
   .form-group label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
     display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
   }
   
-  .form-control {
+  .form-group input,
+  .form-group textarea {
     width: 100%;
     padding: 10px;
-    font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
+    font-size: 14px;
   }
   
-  .form-control:focus {
+  .form-group input:focus,
+  .form-group textarea:focus {
     border-color: #0054a6;
     outline: none;
-    box-shadow: 0 0 4px rgba(0, 84, 166, 0.2);
   }
   
-  textarea.form-control {
-    resize: vertical;
+  textarea {
+    resize: none;
   }
   
-  .submit-button {
-    background-color: #0054a6;
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #0054a6;
     color: #fff;
-    padding: 10px 15px;
-    font-size: 16px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s;
   }
   
-  .submit-button:hover {
-    background-color: #004080;
-    transform: translateY(-2px);
+  .submit-btn:hover {
+    background: #004080;
   }
   
-  .submit-button:active {
-    transform: translateY(0);
-  }
-  
-  .status-message {
-    margin-top: 15px;
-    font-size: 14px;
-    color: green;
-  }
