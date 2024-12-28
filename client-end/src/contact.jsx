@@ -9,8 +9,9 @@ const ContactUs = () => {
     message: '',
   });
 
-  const handleChange = ({ target: { name, value } }) => {
-    setFormData(prevData => ({ ...prevData, [name]: value }));
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -20,21 +21,46 @@ const ContactUs = () => {
 
   return (
     <div className="contact-us-page">
+      <div className="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Call us:</strong> +254 712 345 678</p>
+        <p><strong>Office Address:</strong> Kenya School of Monetary Studies, Mathare North Road, Off Thika Highway</p>
+      </div>
       <form className="contact-form" onSubmit={handleSubmit}>
         <h3>Send us a Message</h3>
-        {['name', 'email', 'subject'].map((field) => (
-          <div className="form-group" key={field}>
-            <label htmlFor={field}>Your {field.charAt(0).toUpperCase() + field.slice(1)}</label>
-            <input
-              type={field === 'email' ? 'email' : 'text'}
-              id={field}
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
+        <div className="form-group">
+          <label htmlFor="name">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="subject">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="message">Message</label>
           <textarea
@@ -48,13 +74,6 @@ const ContactUs = () => {
         </div>
         <button type="submit" className="submit-btn">Submit</button>
       </form>
-
-      <div className="contact-info">
-        <h2>Contact Information</h2>
-        <p><strong>Call us:</strong> </p>
-        <h3>+254 712 345 678</h3>
-        <p><strong>Office Address:</strong> Kenya School of Monetary Studies, Mathare North Road, Off Thika Highway</p>
-      </div>
     </div>
   );
 };
