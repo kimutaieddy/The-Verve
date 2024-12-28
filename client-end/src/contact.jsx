@@ -51,7 +51,8 @@ const ContactUs = () => {
 
       <div className="contact-info">
         <h2>Contact Information</h2>
-        <p><strong>Call us:</strong> +254 712 345 678</p>
+        <p><strong>Call us:</strong> </p>
+        <h3>+254 712 345 678</h3>
         <p><strong>Office Address:</strong> Kenya School of Monetary Studies, Mathare North Road, Off Thika Highway</p>
       </div>
     </div>
