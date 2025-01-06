@@ -1,3 +1,14 @@
+/**
+ * A React component that manages and displays a list of PDF resources.
+ * 
+ * This component allows users to:
+ * - Fetch and display a list of available PDFs from an API.
+ * - Upload new PDF files by providing a file and a name.
+ * - View uploaded PDFs with links to access them.
+ * 
+ * The component uses `useState` to manage state for PDFs, selected file, and PDF name,
+ * and `useEffect` to fetch the list of PDFs on initial render.
+ */
 import React, { useState, useEffect } from "react";
 import './Resources.css';
 
