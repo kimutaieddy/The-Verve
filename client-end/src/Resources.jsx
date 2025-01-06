@@ -10,9 +10,13 @@ function Resources() {
         fetchPdfs();
     }, []);
 
+    // Fetch PDFs from the API
     const fetchPdfs = async () => {
         try {
             const response = await fetch('http://localhost:8000/api/pdfs/');
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
             const data = await response.json();
             setPdfs(data);
         } catch (error) {
@@ -20,31 +24,46 @@ function Resources() {
         }
     };
 
+    // Handle file selection
     const handleFileChange = (event) => {
         setSelectedFile(event.target.files[0]);
     };
 
+    // Handle name input change
     const handleNameChange = (event) => {
         setPdfName(event.target.value);
     };
 
+    // Handle file upload
     const handleFileUpload = async () => {
+        if (!selectedFile || !pdfName) {
+            alert("Please provide a file and a name.");
+            return;
+        }
+
         const formData = new FormData();
-        formData.append('file', selectedFile);
-        formData.append('name', pdfName); // Add the name to the form data
+        formData.append('file', selectedFile); // Match backend field name
+        formData.append('name', pdfName);     // Match backend field name
 
         try {
             const response = await fetch('http://localhost:8000/api/pdfs/', {
                 method: 'POST',
                 body: formData,
             });
+
             if (response.ok) {
-                fetchPdfs(); // Refresh the list of PDFs after upload
+                console.log('File uploaded successfully.');
+                fetchPdfs(); // Refresh the list of PDFs
+                setPdfName(""); // Reset the name input
+                setSelectedFile(null); // Reset the file input
             } else {
-                console.error('Error uploading file:', response.statusText);
+                const errorData = await response.json();
+                console.error('Error uploading file:', errorData);
+                alert(`Upload failed: ${errorData.detail || 'Unknown error'}`);
             }
         } catch (error) {
             console.error('Error uploading file:', error);
+            alert('An error occurred during file upload. Please try again.');
         }
     };
 
@@ -57,8 +76,17 @@ function Resources() {
                 </div>
                 <div className="card">
                     <h3>Upload PDF</h3>
-                    <input type="text" placeholder="Enter PDF name" onChange={handleNameChange} />
-                    <input type="file" onChange={handleFileChange} />
+                    <input
+                        type="text"
+                        placeholder="Enter PDF name"
+                        value={pdfName}
+                        onChange={handleNameChange}
+                    />
+                    <input
+                        type="file"
+                        accept="application/pdf" // Restrict to PDFs
+                        onChange={handleFileChange}
+                    />
                     <button onClick={handleFileUpload}>Upload</button>
                 </div>
                 <div className="card">
@@ -66,7 +94,13 @@ function Resources() {
                     <ul>
                         {pdfs.map((pdf) => (
                             <li key={pdf.id}>
-                                <a href={pdf.url} target="_blank" rel="noopener noreferrer">{pdf.name}</a>
+                                <a
+                                    href={pdf.file} // Use the file URL from the backend
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {pdf.name}
+                                </a>
                             </li>
                         ))}
                     </ul>
