@@ -5,6 +5,9 @@
 /backend/api/migrations/
 /backend/backend/config.json
 /backend/pdfs/
+
+
+
 # client-end
 /client-end/node_modules
 /client-end/package-lock.json
@@ -51,3 +54,6 @@ yarn-error.log*
 
 #Db files uploaded
 /pdfs
+
+
+backend/backend/.env.local
