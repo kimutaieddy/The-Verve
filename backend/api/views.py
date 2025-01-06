@@ -29,7 +29,7 @@ def contact_form(request):
     try:
         send_mail(
             subject=f"Contact Form Submission: {subject}",
-            message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",a
+            message=f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}",
             from_email=email,
             recipient_list=['your-email@example.com'],
         )
