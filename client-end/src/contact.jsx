@@ -9,30 +9,32 @@ const ContactUs = () => {
     message: '',
   });
 
+  const [status, setStatus] = useState('');
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-     try {
-      const response = await fetch('http://127.0.0.1:8000/api/contact/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      console.log(data);
-      
-     } catch (error) {
-      
-     }
-    console.log('Form submitted:', formData);
-  };
+    try {
+        const response = await fetch('http://localhost:8000/api/contact/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            setStatus('Email sent successfully.');
+        } else {
+            setStatus(`Error: ${data.error}`);
+        }
+    } catch (error) {
+        setStatus(`Error: ${error.message}`);
+    }
+};
 
   return (
     <div className="contact-us-page">
@@ -88,6 +90,7 @@ const ContactUs = () => {
           ></textarea>
         </div>
         <button type="submit" className="submit-btn">Submit</button>
+        {status && <p className="status-message">{status}</p>}
       </form>
     </div>
   );
