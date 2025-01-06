@@ -4,7 +4,7 @@
 /backend/db.sqlite3
 /backend/api/migrations/
 /backend/backend/config.json
-
+/backend/pdfs/
 # client-end
 /client-end/node_modules
 /client-end/package-lock.json
