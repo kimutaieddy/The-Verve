@@ -1,7 +1,7 @@
 {
     "DB_NAME": "django",
-    "DB_USER": "star",
-    "DB_PASSWORD": "your_secure_password",
+    "DB_USER": "stargrazer",
+    "DB_PASSWORD": "123",
     "DB_HOST": "db",
     "DB_PORT": 5432
 }
