@@ -66,11 +66,11 @@ CORS_ALLOWED_ORIGINS = [
 # Add these settings to your settings.py file
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.your-email-provider.com'  # e.g., smtp.gmail.com for Gmail
-EMAIL_PORT = 587  # or 465 for SSL
-EMAIL_USE_TLS = True  # or EMAIL_USE_SSL = True for SSL
-EMAIL_HOST_USER = 'your-email@example.com'
-EMAIL_HOST_PASSWORD = 'your-email-password'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 
