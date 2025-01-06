@@ -3,6 +3,7 @@
 /backend/*.pyc
 /backend/db.sqlite3
 /backend/api/migrations/
+/backend/backend/settings.py
 
 # client-end
 /client-end/node_modules
