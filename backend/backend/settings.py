@@ -15,7 +15,7 @@ from pathlib import Path
 
 
 
-#
+#database configuration (Using a Separate Configuration File config.json)
 
 import json
 
