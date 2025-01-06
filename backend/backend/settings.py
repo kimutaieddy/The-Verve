@@ -12,8 +12,30 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 # Load database configuration from a JSON file
-with open(BASE_DIR / 'config.json') as config_file:
+
+
+
+
+
+import json
+
+with open('config.json') as config_file:
     config = json.load(config_file)
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config['DB_NAME'],
+        'USER': config['DB_USER'],
+        'PASSWORD': config['DB_PASSWORD'],
+        'HOST': config['DB_HOST'],
+        'PORT': config['DB_PORT'],
+    }
+}
+
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,19 +120,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-        'NAME': config['DB_NAME'],
-        'USER': config['DB_USER'],
-        'PASSWORD': config['DB_PASSWORD'],
-        'HOST': config['DB_HOST'],
-        'PORT': config['DB_PORT'],
-        "HOST": config['DB_HOST'],
-        "PORT": config['DB_PORT'],
-    }
-}
 
 
 # Password validation
