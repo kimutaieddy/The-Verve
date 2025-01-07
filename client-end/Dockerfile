@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY PACKAGE.json .
 
-RUN nmp install
+RUN npm install
 COPY . .
 
 
