@@ -57,3 +57,4 @@ yarn-error.log*
 
 
 backend/backend/.env.local
+backend/backend/.env.local
