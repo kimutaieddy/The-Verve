@@ -2,7 +2,7 @@ FROM alpine:3.20
 
 WORKDIR /app
 
-COPY PACKAGE.json .
+COPY package.json .
 
 RUN npm install
 COPY . .
