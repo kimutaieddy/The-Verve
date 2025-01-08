@@ -9,7 +9,7 @@ router = DefaultRouter()
 router.register(r'pdfs', PDFViewSet)
 
 urlpatterns = [
-   path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('contact/', contact_form, name='contact_form'),  # Add this line
 ]
