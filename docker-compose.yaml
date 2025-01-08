@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: afro      # Replace with your database name
       POSTGRES_USER: afro    # Replace with your database user
       POSTGRES_PASSWORD: 123 # Replace with your database password
+      Email: mailhog
+      Email port: 1025
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:

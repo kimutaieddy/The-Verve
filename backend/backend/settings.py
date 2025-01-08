@@ -69,13 +69,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
 
-# Email backend configuration
+# Email backend configuration for MailHog
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 2525
+EMAIL_HOST = 'mailhog'  # Use the name of the MailHog service from docker-compose.yml
+EMAIL_PORT = 1025
 EMAIL_USE_TLS = False
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
 
 ROOT_URLCONF = 'backend.urls'
 
