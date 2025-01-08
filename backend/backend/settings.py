@@ -18,10 +18,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Database configuration
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'afro',  # Replace with your database name
+        'USER': 'afro',  # Replace with your database user
+        'PASSWORD': '123',  # Replace with your database password
+        'HOST': 'afro',  # Assuming you're using Docker, 'db' is the service name of your PostgreSQL container
+        'PORT': '5432',
     }
 }
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
