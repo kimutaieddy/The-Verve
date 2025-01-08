@@ -3,3 +3,10 @@ FROM python:3.10-slim
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
+
+# Create a directory for the app
+WORKDIR /app
+
+# Install dependencies
+COPY  . /app 
+
