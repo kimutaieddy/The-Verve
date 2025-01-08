@@ -1,6 +1,5 @@
-FROM 
+# slim is a lightweight image (debian)
+FROM python:3.10-slim
 
-WORKDIR 
-
-COPY 
-
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
