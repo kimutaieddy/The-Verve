@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: afro
+          POSTGRES_USER: afro
+          POSTGRES_PASSWORD: 123
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://afro:123@localhost:5432/afro
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip install -r backend/requirements.txt
+
+      - name: Run Django migrations
+        run: |
+          source env/bin/activate
+          python backend/manage.py migrate
+
+      - name: Run Django tests
+        run: |
+          source env/bin/activate
+          python backend/manage.py test
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install Node.js dependencies
+        run: |
+          cd client-end
+          npm install
+
+      - name: Build React app
+        run: |
+          cd client-end
+          npm run build
+
+      - name: Run React tests
+        run: |
+          cd client-end
+          npm test -- --watchAll=false
