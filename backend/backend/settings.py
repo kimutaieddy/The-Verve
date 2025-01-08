@@ -22,7 +22,7 @@ DATABASES = {
         'NAME': 'afro',  # Replace with your database name
         'USER': 'afro',  # Replace with your database user
         'PASSWORD': '123',  # Replace with your database password
-        'HOST': 'afro',  # Assuming you're using Docker, 'db' is the service name of your PostgreSQL container
+        'HOST': 'db',  # Assuming you're using Docker, 'db' is the service name of your PostgreSQL container
         'PORT': '5432',
     }
 }
