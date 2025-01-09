@@ -70,7 +70,7 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd client-end
-          npm install
+          npm installq
 
       - name: Build React app
         run: |
