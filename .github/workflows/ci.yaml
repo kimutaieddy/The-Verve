@@ -52,6 +52,11 @@ jobs:
             sleep 1
           done
 
+      - name: Verify PostgreSQL connection
+        run: |
+          source env/bin/activate
+          python -c "import psycopg2; conn = psycopg2.connect('dbname=afro user=afro password=123 host=localhost port=5432'); print('PostgreSQL connection successful')"
+
       - name: Run Django migrations
         run: |
           source env/bin/activate
@@ -70,7 +75,7 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd client-end
-          npm installq
+          npm install
 
       - name: Build React app
         run: |
